@@ -40,10 +40,10 @@ function init() {
     inquirer
         .prompt(questions)
             .then((answers) => {
-     
-        switch (answers.shape) {
+        switch (answers) {
             case "Circle" :
-                return new Circle(answers.text, answers.textColor, answers.fillColor)
+               console.log(new Circle(answers.text, answers.textColor, answers.fillColor, answers.shape))
+               break
             case "Triangle" :
                 return new Triangle(answers.text, answers.textColor, answers.fillColor)
             case "Square" :
@@ -51,11 +51,9 @@ function init() {
             }       
                             
     // call function to generate markdown file. Pass answers to it
-    fs.writeFile("logo.svg", answers)
-
+        fs.writeFile("logo.svg", answers.shape, (err) => 
+        err ? console.error(err) : console.log("success"))
     })
 }   
-
-
 
 init()
