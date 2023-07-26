@@ -1,7 +1,7 @@
 // import statements at the top (fs, inquirer etc etc)
 // import the shapes module
 // import one item: const {Triangle} = require(./lib/shapes.js)
-const {Triangle, Circle, Square} = require("./lib/shapes");
+const {Circle, Triangle, Square} = require("./lib/shapes");
 const inquirer = require("inquirer");
 const fs = require("fs");
 // prompt the users for color, shape, text (3 characters max), shape color
@@ -20,7 +20,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'textcolor',
+        name: 'textColor',
         message: 'Please enter a color for your text (or a hexadecimal number)',
     },
     {
@@ -31,14 +31,31 @@ const questions = [
     },
     {
         type: "input",
-        name: "shapecolor",
+        name: "fillColor",
         message: "Please enter a color for your shape (or a hexadecimal number)"
     }
 ]
 
+function init() {
+    inquirer
+        .prompt(questions)
+            .then((answers) => {
+     
+        switch (answers.shape) {
+            case "Circle" :
+                return new Circle(answers.text, answers.textColor, answers.fillColor)
+            case "Triangle" :
+                return new Triangle(answers.text, answers.textColor, answers.fillColor)
+            case "Square" :
+                return new Square(answers.text, answers.textColor, answers.fillColor)
+            }       
+                            
+    // call function to generate markdown file. Pass answers to it
+    fs.writeFile("logo.svg", answers)
 
-inquirer
-  .prompt(questions)
-    .then((answers) => {
-        // call function to generate markdown file. Pass answers to it
     })
+}   
+
+
+
+init()
