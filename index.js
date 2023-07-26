@@ -40,13 +40,17 @@ const questions = [
 function createShape(answers) {
     switch (answers.shape) {
         case "Circle" :
-            const circle = new Circle(answers.text, answers.textColor, answers.fillColor, answers.shape)
+            const circle = new Circle(answers.text, answers.textColor, answers.fillColor, answers.shape);
             const circleSVG = circle.render()
             return circleSVG
         case "Triangle" :
-            return new Triangle(answers.text, answers.textColor, answers.fillColor, answers.shape)
+            const triangle = new Triangle(answers.text, answers.textColor, answers.fillColor, answers.shape);
+            const triangleSVG = triangle.render()
+            return triangleSVG
         case "Square" :
-            return new Square(answers.text, answers.textColor, answers.fillColor, answers.shape)
+            const square = new Square(answers.text, answers.textColor, answers.fillColor, answers.shape)
+            const squareSVG = square.render()
+            return squareSVG
         }       
 }
 
@@ -55,7 +59,7 @@ function init() {
         .prompt(questions)
             .then((answers) => {       
     // call function to generate markdown file. Pass answers to it
-    
+
         fs.writeFile("logo.svg", createShape(answers), (err) => 
         err ? console.error(err) : console.log("success"))
     })
