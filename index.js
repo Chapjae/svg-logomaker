@@ -1,9 +1,9 @@
 // import statements at the top (fs, inquirer etc etc)
 // import the shapes module
-// impoort one item: const {Triangle} = require(./lib/shapes.js)
+// import one item: const {Triangle} = require(./lib/shapes.js)
 const {Triangle, Circle, Square} = require("./lib/shapes");
 const inquirer = require("inquirer");
-const fs = require("fs")
+const fs = require("fs");
 // prompt the users for color, shape, text (3 characters max), shape color
 // create the svg
     //  
@@ -34,10 +34,11 @@ const questions = [
         name: "shapecolor",
         message: "Please enter a color for your shape (or a hexadecimal number)"
     }
-
 ]
 
 
 inquirer
   .prompt(questions)
-    .then()
+    .then((answers) => {
+        // call function to generate markdown file. Pass answers to it
+    })
