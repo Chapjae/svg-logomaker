@@ -36,22 +36,27 @@ const questions = [
     }
 ]
 
+
+function createShape(answers) {
+    switch (answers.shape) {
+        case "Circle" :
+            const circle = new Circle(answers.text, answers.textColor, answers.fillColor, answers.shape)
+            const circleSVG = circle.render()
+            return circleSVG
+        case "Triangle" :
+            return new Triangle(answers.text, answers.textColor, answers.fillColor, answers.shape)
+        case "Square" :
+            return new Square(answers.text, answers.textColor, answers.fillColor, answers.shape)
+        }       
+}
+
 function init() {
     inquirer
         .prompt(questions)
-            .then((answers) => {
-        switch (answers) {
-            case "Circle" :
-               console.log(new Circle(answers.text, answers.textColor, answers.fillColor, answers.shape))
-               break
-            case "Triangle" :
-                return new Triangle(answers.text, answers.textColor, answers.fillColor)
-            case "Square" :
-                return new Square(answers.text, answers.textColor, answers.fillColor)
-            }       
-                            
+            .then((answers) => {       
     // call function to generate markdown file. Pass answers to it
-        fs.writeFile("logo.svg", answers.shape, (err) => 
+    
+        fs.writeFile("logo.svg", createShape(answers), (err) => 
         err ? console.error(err) : console.log("success"))
     })
 }   
