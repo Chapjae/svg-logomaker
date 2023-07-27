@@ -1,4 +1,6 @@
 <svg height="200px" width="300px" xmlns="http://www.w3.org/2000/svg">
-                            <polygon points="150,00 00,200 300,200" fill="blue"/>
-                            <text x='73' y='150' fill="red" font-size="75px">qwe</text>
+                        setColor() { 
+                return `<polygon points="150,00 00,200 300,200" fill="${this.fillColor}"/>`
+            }
+                        <text x='73' y='150' fill="red" font-size="75px">qwe</text>
                         </svg>
