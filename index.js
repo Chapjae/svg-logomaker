@@ -54,22 +54,22 @@ function createShape(answers) {
         }       
 }
 
-function generateLogo(answers) {
-    return `
-    <svg height="200px" width="300px" xmlns="http://www.w3.org/2000/svg">
-    ${createShape(answers)}
-    <text x='73' y='150' fill="${this.textColor}" font-size="75px">${this.text}</text>
-    </svg>
-    `
-}
+// function generateLogo(answers) {
+//     return `
+//     <svg height="200px" width="300px" xmlns="http://www.w3.org/2000/svg">
+//     ${createShape(answers)}
+//     <text x='73' y='150' fill="${this.textColor}" font-size="75px">${this.text}</text>
+//     </svg>
+//     `
+// }
 
 function init() {
     inquirer
         .prompt(questions)
             .then((answers) => {       
     // call function to generate markdown file. Pass answers to it
-
-        fs.writeFile("logo.svg", generateLogo(answers), (err) => 
+console.log(answers)
+        fs.writeFile("logo.svg", createShape(answers), (err) => 
         err ? console.error(err) : console.log("success"))
     })
 }   
