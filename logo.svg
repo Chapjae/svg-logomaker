@@ -1,5 +1,1 @@
-
-                        <svg height="200" width="300" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="120" cy="100" r="100" fill='blue'/>
-                        <text x='45' y='120' fill='red' font-size="75px">qwe</text>
-                        </svg> 
+<svg height="200px" width="300px" xmlns="http://www.w3.org/2000/svg"><polygon points="150,00 00,200 300,200" fill="blue"/><text x='73' y='150' fill="Green" font-size="75px">SVG</text></svg>

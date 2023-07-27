@@ -1,13 +1,6 @@
-// import statements at the top (fs, inquirer etc etc)
-// import the shapes module
-// import one item: const {Triangle} = require(./lib/shapes.js)
 const {Circle, Triangle, Square} = require("./lib/shapes");
 const inquirer = require("inquirer");
 const fs = require("fs");
-// prompt the users for color, shape, text (3 characters max), shape color
-// create the svg
-    //  
-    // 2.9? - write the file
 
 const questions = [
     {
@@ -36,7 +29,6 @@ const questions = [
     }
 ]
 
-
 function createShape(answers) {
     switch (answers.shape) {
         case "Circle" :
@@ -54,21 +46,10 @@ function createShape(answers) {
         }       
 }
 
-// function generateLogo(answers) {
-//     return `
-//     <svg height="200px" width="300px" xmlns="http://www.w3.org/2000/svg">
-//     ${createShape(answers)}
-//     <text x='73' y='150' fill="${this.textColor}" font-size="75px">${this.text}</text>
-//     </svg>
-//     `
-// }
-
 function init() {
     inquirer
         .prompt(questions)
             .then((answers) => {       
-    // call function to generate markdown file. Pass answers to it
-console.log(answers)
         fs.writeFile("logo.svg", createShape(answers), (err) => 
         err ? console.error(err) : console.log("success"))
     })
