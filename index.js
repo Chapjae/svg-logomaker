@@ -1,7 +1,9 @@
+// import all relavent modules
 const {Circle, Triangle, Square} = require("./lib/shapes");
 const inquirer = require("inquirer");
 const fs = require("fs");
 
+// create a question array what we will pass into inquirer
 const questions = [
     {
         type: 'input',
@@ -29,6 +31,7 @@ const questions = [
     }
 ]
 
+// instantiate a shape based on the user's selection from inquirer and pass in their responses as parameters
 function createShape(answers) {
     switch (answers.shape) {
         case "Circle" :
@@ -46,6 +49,8 @@ function createShape(answers) {
         }       
 }
 
+// init function will run inquirer and prompt user for answers. Once answers are recieved it will use
+// fs.writeFile to create an svg file
 function init() {
     inquirer
         .prompt(questions)
@@ -55,4 +60,5 @@ function init() {
     })
 }   
 
+// run init
 init()

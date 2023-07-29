@@ -10,8 +10,9 @@ When the user runs index.js, they will be prompted with a series of questions re
 [LinkedIn](https://www.linkedin.com/in/jay-liu-3208a3bb/)
 
 ## Technologies Used
-HTML
-Javascript
-CSS
-Node.js
-Jestjs.io
+HTML <br>
+Javascript <br>
+CSS <br>
+Node.js <br>
+Jestjs.io <br>
+
